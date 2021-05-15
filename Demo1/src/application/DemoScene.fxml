@@ -38,6 +38,16 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
+                              <Label layoutX="400.0" layoutY="200.0" text="Invalid Input!" textFill="#f20808" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="650.0" layoutY="200.0" text="Invalid Input!" textFill="#f20808" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
                               <Label layoutX="70.0" layoutY="230.0" text="B1">
                                  <font>
                                     <Font name="System Bold" size="28.0" />
@@ -51,6 +61,16 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
+                              <Label layoutX="400.0" layoutY="320.0" text="Invalid Input!" textFill="#f20808" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="650.0" layoutY="320.0" text="Invalid Input!" textFill="#f20808" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
                               <Label layoutX="70.0" layoutY="350.0" text="C1">
                                  <font>
                                     <Font name="System Bold" size="28.0" />
@@ -60,6 +80,16 @@
                               <TextField layoutX="400.0" layoutY="390.0" prefHeight="45.0" prefWidth="100.0" />
                               <TextField layoutX="650.0" layoutY="390.0" prefHeight="45.0" prefWidth="100.0" />
                               <Label layoutX="150.0" layoutY="440.0" text="Invalid Input!" textFill="#f20808" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="400.0" layoutY="440.0" text="Invalid Input!" textFill="#f20808" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="650.0" layoutY="440.0" text="Invalid Input!" textFill="#f20808" visible="false">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
