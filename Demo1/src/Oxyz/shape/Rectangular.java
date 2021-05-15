@@ -2,6 +2,7 @@ package Oxyz.shape;
 
 import Oxyz.plane_line_vector.Plane;
 import Oxyz.plane_line_vector.Point;
+import Oxyz.plane_line_vector.Vector;
 
 public class Rectangular {
 	private Point A1;
@@ -173,6 +174,12 @@ public class Rectangular {
 		}
 		
 		return true;
+	}
+	
+	public boolean isPerpendicular() { // xac dinh 3 dinh cho truoc co tao thanh goc vuong hay ko
+		Vector u1 = new Vector(A1, B1);
+		Vector u2 = new Vector(B1, C1);
+		return (u1.getX()*u2.getX() + u1.getY()*u2.getY() + u1.getZ()*u2.getZ()) == 0;
 	}
 	
 }

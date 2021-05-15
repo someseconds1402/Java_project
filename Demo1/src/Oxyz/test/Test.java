@@ -13,9 +13,10 @@ public class Test {
 		Point p = new Point(2, 3, 8);
 		
 		Rectangular r = new Rectangular(a1, b1, c1, 8);
-		r.isIn(p);
+		
+//		System.out.println(r.isPerpendicular());
 //		System.out.println(r.getB2().getX());;
-		System.out.println(r.isIn(p));
+//		System.out.println(r.isIn(p));
 
 	}
 

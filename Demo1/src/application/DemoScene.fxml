@@ -1,8 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
-
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1200.0" text="MINI PROJECT" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <SplitPane dividerPositions="0.2846410684474123" prefHeight="814.0" prefWidth="1200.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Button layoutX="75.0" layoutY="50.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Add Object" />
+                        <Button layoutX="75.0" layoutY="150.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Add Camera" />
+                        <Button layoutX="75.0" layoutY="250.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="View" />
+                        <Button layoutX="75.0" layoutY="350.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Task 4" />
+                        <Button layoutX="75.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Task 5" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="724.0" prefWidth="832.0">
+                     <children>
+                        <AnchorPane prefHeight="810.0" prefWidth="853.0">
+                           <children>
+                              <TextField layoutX="350.0" layoutY="150.0" prefHeight="45.0" prefWidth="350.0" />
+                              <TextField layoutX="350.0" layoutY="240.0" prefHeight="45.0" prefWidth="350.0" />
+                              <TextField layoutX="350.0" layoutY="330.0" prefHeight="45.0" prefWidth="350.0" />
+                              <TextField layoutX="350.0" layoutY="420.0" prefHeight="45.0" prefWidth="350.0" />
+                              <Label layoutX="350.0" layoutY="200.0" text="Invalid Input! Please try again!" textFill="#f20808" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="350.0" layoutY="290.0" text="Invalid Input! Please try again!" textFill="#f20808" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="350.0" layoutY="380.0" text="Invalid Input! Please try again!" textFill="#f20808" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="350.0" layoutY="470.0" text="Invalid Input! Please try again!" textFill="#f20808" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="230.0" layoutY="150.0" text="A1">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="230.0" layoutY="240.0" text="B1">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="230.0" layoutY="330.0" text="C1">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="230.0" layoutY="420.0" text="Heigth">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="350.0" layoutY="519.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" text="ADD" />
+                           </children>
+                        </AnchorPane>
+                        <TabPane prefHeight="809.0" prefWidth="853.0" tabClosingPolicy="UNAVAILABLE" visible="false">
+                          <tabs>
+                            <Tab text="Flat View">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                            </Tab>
+                            <Tab text="Side View 1">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                            </Tab>
+                              <Tab text="Side View 2">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                </content>
+                              </Tab>
+                              <Tab text="Side View 3">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                </content>
+                              </Tab>
+                              <Tab text="Side View 4">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children></AnchorPane>
+  </content>
+</TitledPane>
