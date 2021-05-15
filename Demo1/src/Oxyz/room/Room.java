@@ -20,7 +20,6 @@ public class Room {
 	// Constructor
 	
 	public Room(float widthRoom, float lengthRoom, float heightRoom) {
-		super();
 		this.widthRoom = widthRoom;
 		this.lengthRoom = lengthRoom;
 		this.heightRoom = heightRoom;
