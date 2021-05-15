@@ -58,4 +58,9 @@ public class Vector {
 	public boolean isPerpendicular(Vector v) { // xac dinh 2 vector co vuong goc voi nhau hay ko
 		return (x*v.getX() + y*v.getY() + z*v.getZ()) == 0;
 	}
+	
+	public static boolean isPerpendicular(Point p1, Point p2, Point p3) { // xac dinh 2 vector co vuong goc voi nhau hay ko
+		Vector v1 = new Vector(p1, p2);
+		return v1.isPerpendicular(new Vector(p2, p3));
+	}
 }
