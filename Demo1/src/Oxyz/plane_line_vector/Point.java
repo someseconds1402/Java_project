@@ -5,11 +5,21 @@ public class Point {
 	private float y;
 	private float z;
 	
+	//Constructor
+	
+	public Point() {
+		x = 0;
+		y = 0; 
+		z = 0;
+	}
+	
 	public Point(float x, float y, float z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
+	
+	// Setter & Getter
 
 	public float getX() {
 		return x;

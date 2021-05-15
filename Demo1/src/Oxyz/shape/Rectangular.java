@@ -1,5 +1,6 @@
 package Oxyz.shape;
 
+import Oxyz.plane_line_vector.Plane;
 import Oxyz.plane_line_vector.Point;
 
 public class Rectangular {
@@ -23,7 +24,13 @@ public class Rectangular {
 		C1 = c1;
 		this.h = h;
 		
-		this.setD2();
+		D1 = new Point();
+		A2 = new Point();
+		B2 = new Point();
+		C2 = new Point();
+		D2 = new Point();
+		
+		this.setD1();
 		this.setA2();
 		this.setB2();
 		this.setC2();
@@ -136,9 +143,36 @@ public class Rectangular {
 	
 	/****************************************************************************/
 	
-	public boolean isIn(Point p) {
+	public boolean isIn(Point p) { // Kiem tra diem p co nam trong hinh hop this hay ko
+		float n1, n2, n3, n4, n5, n6;
+		Plane pl1, pl2, pl3, pl4, pl5, pl6;
+		pl1 = new Plane(A1, B1, C1); 	 // Mat phang A1.B1.C1.D1 (1)
+		pl2 = new Plane(A1, B1, A2); 	 // Mat phang A1.B1.B2.A2 (2)
+		pl3 = new Plane(A1, D1, A2); 	 // Mat phang A1.D1.D2.A2 (3)
+		pl4 = new Plane(A2, pl1.getV()); // Mat phang A2.B2.C2.D2 (1)
+		pl5 = new Plane(C1, pl2.getV()); // Mat phang C1.D1.D2.C2 (2)
+		pl6 = new Plane(B1, pl3.getV()); // Mat phang B1.C1.C2.B2 (3)
 		
-		return false;
+		n1 = pl1.doSomething(p);
+		n4 = pl4.doSomething(p);
+
+		if(n1*n4 > 0) {
+			return false;
+		}
+		
+		n2 = pl2.doSomething(p);
+		n5 = pl5.doSomething(p);
+		if(n2*n5 > 0f) {
+			return false;
+		}
+		
+		n3 = pl3.doSomething(p);
+		n6 = pl6.doSomething(p);
+		if(n3*n6 > 0f) {
+			return false;
+		}
+		
+		return true;
 	}
 	
 }

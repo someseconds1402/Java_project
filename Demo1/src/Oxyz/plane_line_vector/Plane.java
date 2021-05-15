@@ -28,6 +28,20 @@ public class Plane {
 		d = - (a*p1.getX() + b*p1.getY() + c*p1.getZ());
 	}
 	
+	public Plane(Point p1, Vector n) {
+		v = n;
+		
+		/*
+		 * v = (a, b, c) & A(x0, y0, z0)
+		 * => aX + bY + cZ + d = 0 <=> a(X-x0) + b(Y-y0) + c(Z-z0) = 0
+		 * => d = -(a*x0 + b*y0 + c*z0)
+		 */
+		a = v.getX();
+		b = v.getY();
+		c = v.getZ();
+		d = - (a*p1.getX() + b*p1.getY() + c*p1.getZ());
+	}
+	
 	// Getter & Setter
 
 	public float getA() {
@@ -85,5 +99,9 @@ public class Plane {
 		else {
 			return (t / (float)Math.sqrt(a*a + b*b + c*c));
 		}
+	}
+	
+	public void print() {
+		System.out.println(a + "X + " + b + "Y + " + c + "Z + " + d + " = 0");
 	}
 }
