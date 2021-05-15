@@ -1,5 +1,6 @@
 package Oxyz.shape;
 
+import Oxyz.plane_line_vector.Line;
 import Oxyz.plane_line_vector.Plane;
 import Oxyz.plane_line_vector.Point;
 import Oxyz.plane_line_vector.Vector;
@@ -182,4 +183,43 @@ public class Rectangular {
 		return (u1.getX()*u2.getX() + u1.getY()*u2.getY() + u1.getZ()*u2.getZ()) == 0;
 	}
 	
+	
+	public boolean isInRect(Line l1, Line l2, Line l3, Line l4, Point p) { // Xac dinh 1 diem co nam trong day cua vat the hay khong
+		if(Line.isBetween2Lines(l1, l2, p) && Line.isBetween2Lines(l3, l4, p)) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean isValidPosition(Rectangular r) { // dinh cua 1 vat the co nam trong vat the khac hay khong
+		Line AB = new Line(A1, B1);
+		Line CD = new Line(C1, AB.getU());
+		Line AD = new Line(A1, D1);
+		Line BC = new Line(B1, AD.getU());
+		
+		if(isInRect(AB, CD, AD, BC, r.getA1()))
+			return true;
+		if(isInRect(AB, CD, AD, BC, r.getB1()))
+			return true;
+		if(isInRect(AB, CD, AD, BC, r.getC1()))
+			return true;
+		if(isInRect(AB, CD, AD, BC, r.getD1()))
+			return true;
+		
+		return false;
+	}
+	
+	public boolean isInRect(Point p) { // Xac dinh 1 diem co nam trong day cua vat the hay khong
+		Line AB = new Line(A1, B1);
+		Line CD = new Line(C1, AB.getU());
+		Line AD = new Line(A1, D1);
+		Line BC = new Line(B1, AD.getU());
+		
+		if(Line.isBetween2Lines(AB, CD, p) && Line.isBetween2Lines(AD, BC, p)) {
+			return true;
+		}
+		
+		return false;
+	}
 }

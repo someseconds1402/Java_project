@@ -12,9 +12,21 @@ public class Test {
 		Point b1 = new Point(0, 0, 0);
 		Point c1 = new Point(0, 7, 0);
 		
-		Point p = new Point(2, 3, 8);
+		Point p = new Point(2, 5, 8);
 		
 		Rectangular r = new Rectangular(a1, b1, c1, 8);
+
+		
+//		Point a2 = new Point(7, 0, 0);
+//		Point b2 = new Point(2, 0, 0);
+//		Point c2 = new Point(2, 8, 0);
+//		
+//		
+//		Rectangular r2 = new Rectangular(a2, b2, c2, 8);
+//		System.out.println(r2.isValidPosition(r));
+
+		
+//		System.out.println(r.isInRect(p));
 //		System.out.println(Vector.isPerpendicular(a1, b1, c1));
 //		System.out.println(r.isPerpendicular());
 //		System.out.println(r.getB2().getX());;

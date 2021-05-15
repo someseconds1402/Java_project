@@ -72,12 +72,38 @@ public class Room {
 	}
 	
 	public boolean addObject(Rectangular r) {
-		if(r.getA1().getZ() > 0) {
+		float bottom = r.getA1().getZ();
+		if(bottom > 0) { // Neu vat khong nam tren san
 			
+			float Gx = (r.getA1().getX() + r.getC1().getX()) / 2;
+			float Gy = (r.getA1().getY() + r.getC1().getY()) / 2;
+			float Gz = (r.getA1().getZ() + r.getC1().getZ()) / 2;
+			
+			Point G = new Point(Gx, Gy, Gz); // G la trong tam mat duoi cua vat the r
+			
+			for(Rectangular rect : rectList) {
+				if(bottom < rect.getH()) {
+					if(rect.isValidPosition(r) || r.isValidPosition(rect))
+						return false;
+				} else if(bottom == rect.getH()) {
+					if(rect.isInRect(G)) {
+						rectList.add(r);
+						return true;
+					}
+				}
+			}
+			
+			return false;
 		} else {
-			
+			for(Rectangular rect : rectList) {
+				if(rect.isValidPosition(r))
+					return false;
+				if(r.isValidPosition(rect))
+					return false;
+			}
+			rectList.add(r);
+			return true;
 		}
-		return true;
 	}
 	
 	public boolean inRoom(Rectangular r) { // Xac dinh 1 vat co nam trong phong hay ko
