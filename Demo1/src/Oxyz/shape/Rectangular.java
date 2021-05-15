@@ -1,5 +1,7 @@
 package Oxyz.shape;
 
+import Oxyz.plane_line_vector.Point;
+
 public class Rectangular {
 	private Point A1;
 	private Point B1;

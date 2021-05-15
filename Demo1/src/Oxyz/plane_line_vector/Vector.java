@@ -1,7 +1,5 @@
 package Oxyz.plane_line_vector;
 
-import Oxyz.shape.Point;
-
 public class Vector {
 	private float x;
 	private float y;
@@ -13,6 +11,8 @@ public class Vector {
 		this.y = y;
 		this.z = z;
 	}
+	
+	// Constructor
 	
 	public Vector(Point p1, Point p2) {
 		x = p1.getX() - p2.getX();
@@ -31,6 +31,8 @@ public class Vector {
 		y = v1.getZ()*v2.getX() - v2.getZ()*v1.getX();
 		z = v1.getX()*v2.getY() - v2.getX()*v1.getY();
 	}
+	
+	// Getter & Setter
 	
 	public float getX() {
 		return x;

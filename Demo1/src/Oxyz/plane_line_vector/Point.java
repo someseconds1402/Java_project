@@ -1,4 +1,4 @@
-package Oxyz.shape;
+package Oxyz.plane_line_vector;
 
 public class Point {
 	private float x;
