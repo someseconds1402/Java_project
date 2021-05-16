@@ -10,7 +10,8 @@ public class Camera {
 	private Vector axis; // truc cua camera
 	
 	private Plane []vision = new Plane[4]; // tam nhin cua camera (bao quanh boi 4 hinh tam giac)
-	private Plane bottom;
+	private Plane top;  // mat phang vuong goc voi truc cua camera tai dinh. 
+						//Dung de kiem tra 1 vat co nam ngoai tam xa cua camera hay ko
 	private float angle1, angle2;
 	
 	// Getter & Setter
@@ -44,11 +45,11 @@ public class Camera {
 	public void setVision(Plane[] vision) {
 		this.vision = vision;
 	}
-	public Plane getBottom() {
-		return bottom;
+	public Plane getTop() {
+		return top;
 	}
-	public void setBottom(Plane[] vision) {
-		this.vision = vision;
+	public void setTop() {
+		top = new Plane(position, axis);
 	}
 	public float getAngle1() {
 		return angle1;
@@ -75,6 +76,7 @@ public class Camera {
 		float cosAngel2 = (float)Math.cos(Math.toRadians(angle2 / 2));
 		
 		if(setAxis(room)) {
+			setTop();
 			
 			if(axis.getX() == 1) { // camera dat tren tuong (x = 0)
 				vision[0] = new Plane(position, new Vector(-cosAngel1 * cosAngel1 +1, sinAngel1 * cosAngel1, 0));
@@ -101,6 +103,8 @@ public class Camera {
 	// Other Method
 	
 	public boolean isInVision(Point p) { // Kiem tra 1 vat co nam trong tam nhin cua camera hay ko
+		if(top.distance(p) > 100) 
+			return false;
 		if(!Plane.isBetween2Planes(vision[0], vision[1], p))
 			return false;
 		if(!Plane.isBetween2Planes(vision[2], vision[3], p))
