@@ -1,8 +1,10 @@
 package Oxyz.test;
 
-import Oxyz.plane_line_vector.Line;
+
+import Oxyz.camera.Camera;
+import Oxyz.plane_line_vector.Plane;
 import Oxyz.plane_line_vector.Point;
-import Oxyz.plane_line_vector.Vector;
+import Oxyz.room.Room;
 import Oxyz.shape.Rectangular;
 
 public class Test {
@@ -14,8 +16,17 @@ public class Test {
 		
 		Point p = new Point(2, 5, 8);
 		
+		Point a = new Point(0, 0, 0);
+		
+		Room room = new Room(10, 10, 10);
+		Camera camera = new Camera(room, a, 60, 60);
+		
+		System.out.println(camera.isInVision(new Point(0, 1, 1)));
+		
 		Rectangular r = new Rectangular(a1, b1, c1, 8);
+		
 
+//		System.out.println((new Plane(a1, b1, c1)).distance((new Point(2, 6, 20))));
 		
 //		Point a2 = new Point(7, 0, 0);
 //		Point b2 = new Point(2, 0, 0);

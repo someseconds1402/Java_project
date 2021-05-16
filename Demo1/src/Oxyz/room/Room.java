@@ -25,6 +25,12 @@ public class Room {
 		this.heightRoom = heightRoom;
 	}
 	
+	public Room(Point pWidth, Point pLength, Point pHeight) {
+		widthRoom = pWidth.getX();
+		lengthRoom = pLength.getY();
+		heightRoom = pHeight.getZ();
+	}
+	
 	// Getter & Setter
 	
 	public ArrayList<Rectangular> getRectList() {

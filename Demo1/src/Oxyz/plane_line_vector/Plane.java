@@ -87,16 +87,20 @@ public class Plane {
 	
 	public float distance(Point p) {
 		float t = a*p.getX() + b*p.getY() + c*p.getZ();
-		if(t== 0.0f) {
+		if(t == 0.0f) {
 			return 0f;
 		}
 		else {
-			return (t / (float)Math.sqrt(a*a + b*b + c*c));
+			return Math.abs((t / (float)Math.sqrt(a*a + b*b + c*c)));
 		}
 	}
 	
 	public void print() {
 		System.out.println(a + "X + " + b + "Y + " + c + "Z + " + d + " = 0");
+	}
+	
+	public static boolean isBetween2Planes(Plane pl1, Plane pl2, Point p) { // Kiem tra 1 diem co nam giua 2 mat phang hay khong
+		return (pl1.doSomething(p) * pl2.doSomething(p)) <= 0;
 	}
 	
 }

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1200.0" text="MINI PROJECT" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" text="MINI PROJECT" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
@@ -21,9 +21,9 @@
                         <Button layoutX="75.0" layoutY="450.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Task 5" />
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="724.0" prefWidth="832.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="832.0">
                      <children>
-                        <AnchorPane prefHeight="810.0" prefWidth="853.0">
+                        <AnchorPane layoutY="-93.0" prefHeight="655.0" prefWidth="853.0">
                            <children>
                               <Label layoutX="70.0" layoutY="110.0" text="A1">
                                  <font>
@@ -105,7 +105,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="350.0" layoutY="626.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" text="ADD" />
+                              <Button layoutX="476.0" layoutY="508.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" text="ADD" />
                               <Label layoutX="115.0" layoutY="155.0" text="X :">
                                  <font>
                                     <Font size="24.0" />
