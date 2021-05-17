@@ -1,8 +1,5 @@
 package Oxyz.test;
 
-
-import Oxyz.camera.Camera;
-import Oxyz.plane_line_vector.Plane;
 import Oxyz.plane_line_vector.Point;
 import Oxyz.room.Room;
 import Oxyz.shape.Rectangular;
@@ -10,48 +7,27 @@ import Oxyz.shape.Rectangular;
 public class Test {
 
 	public static void main(String[] args) {
-		Point a1 = new Point(5, 0, 0);
-		Point b1 = new Point(0, 0, 0);
-		Point c1 = new Point(0, 7, 0);
+		Room room = new Room(10, 6, 5);
 		
-		Point p = new Point(2, 5, 8);
+		Point p1 = new Point(2, 0, 0);
+		Point p2 = new Point(0, 0, 0);
+		Point p3 = new Point(0, 3, 0);
+				
+		if(room.addObject(p1, p2, p3, 1)) {
+			System.out.println(1);
+		}else {
+			System.out.println(2);
+		}
 		
-		Point a = new Point(0, 0, 0);
+		Point p4 = new Point(1, 0, 0);
+		Point p5 = new Point(0, 0, 0);
+		Point p6 = new Point(0, 2, 0);
 		
-		Room room = new Room(10, 10, 10);
-		Camera camera = new Camera(room, a, 60, 60);
-		
-		System.out.println(camera.isInVision(new Point(0, 1, 1)));
-		
-		Rectangular r = new Rectangular(a1, b1, c1, 8);
-		
-
-//		System.out.println((new Plane(a1, b1, c1)).distance((new Point(2, 6, 20))));
-		
-//		Point a2 = new Point(7, 0, 0);
-//		Point b2 = new Point(2, 0, 0);
-//		Point c2 = new Point(2, 8, 0);
-//		
-//		
-//		Rectangular r2 = new Rectangular(a2, b2, c2, 8);
-//		System.out.println(r2.isValidPosition(r));
-
-		
-//		System.out.println(r.isInRect(p));
-//		System.out.println(Vector.isPerpendicular(a1, b1, c1));
-//		System.out.println(r.isPerpendicular());
-//		System.out.println(r.getB2().getX());;
-//		System.out.println(r.isIn(p));
-
-		
-//		Point a = new Point(-1, 0, 0);
-//		Point b = new Point(0, 1, 0);
-//		Point c = new Point(0, -2, 0);
-//		Point d = new Point(0, 3, 0);
-//		
-//		Line l1 = new Line(a, b);
-//		Line l2 = new Line(c, l1.getU());
-//		System.out.println(Line.isBetween2Lines(l1, l2, d));
+		if(room.addObject(p4, p5, p6, 1)) {
+			System.out.println(1);
+		}else {
+			System.out.println(2);
+		}
 	}
 
 }

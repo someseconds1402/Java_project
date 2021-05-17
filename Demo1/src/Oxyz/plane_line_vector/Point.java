@@ -44,4 +44,10 @@ public class Point {
 	public void setZ(float z) {
 		this.z = z;
 	}
+	
+	// Other Method
+	
+	public boolean isDifference(Point p) {
+		return !(x == p.x && y == p.y && z == p.z);
+	}
 }

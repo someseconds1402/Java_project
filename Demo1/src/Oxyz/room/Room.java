@@ -66,52 +66,67 @@ public class Room {
 	
 	// Other Method
 	
+	/**********************************************************************/
+	
+	/** 
+	 * Them vat vao trong phong, kiem tra vi tri dat vat co hop le hay ko. 
+	 * xet truong hop vat nam tren san va nam tren vat khac
+	 *  */
 	public boolean addObject(Point A1, Point B1, Point C1, float height) {
-		boolean check = Vector.isPerpendicular(A1, B1, C1);
-		if(!check) {
-			return false;
-		} else {
-			
-		}
-		return true;
+//		boolean check = Vector.isPerpendicular(A1, B1, C1);
+//		if(!check) {
+//			return false;
+//		} else {
+			Rectangular r = new Rectangular(A1, B1, C1, height);
+			return addObject(r);
+//		}
 	}
 	
-	public boolean addObject(Rectangular r) {
-		float bottom = r.getA1().getZ();
-		if(bottom > 0) { // Neu vat khong nam tren san
-			
-			float Gx = (r.getA1().getX() + r.getC1().getX()) / 2;
-			float Gy = (r.getA1().getY() + r.getC1().getY()) / 2;
-			float Gz = (r.getA1().getZ() + r.getC1().getZ()) / 2;
-			
-			Point G = new Point(Gx, Gy, Gz); // G la trong tam mat duoi cua vat the r
-			
-			for(Rectangular rect : rectList) {
-				if(bottom < rect.getH()) {
-					if(rect.isValidPosition(r) || r.isValidPosition(rect))
-						return false;
-				} else if(bottom == rect.getH()) {
-					if(rect.isInRect(G)) {
-						rectList.add(r);
-						return true;
+	/** 
+	 * Them vat vao trong phong, kiem tra vi tri dat vat co hop le hay ko. 
+	 * xet truong hop vat nam tren san va nam tren vat khac
+	 *  */
+	public boolean addObject(Rectangular r) { 
+		if(inRoom(r)) { // vi tri dat vat hop le (nam trong phong)
+			float bottom = r.getA1().getZ();
+			if(bottom > 0) { // Neu vat khong nam tren san
+				
+				float Gx = (r.getA1().getX() + r.getC1().getX()) / 2;
+				float Gy = (r.getA1().getY() + r.getC1().getY()) / 2;
+				float Gz = (r.getA1().getZ() + r.getC1().getZ()) / 2;
+				
+				Point G = new Point(Gx, Gy, Gz); // G la trong tam mat duoi cua vat the r
+				
+				for(Rectangular rect : rectList) {
+					if(bottom < rect.getH()) {
+						if(rect.isValidPosition(r) || r.isValidPosition(rect))
+							return false;
+					} else if(bottom == rect.getH()) {
+						if(rect.isInRect(G)) {
+							rectList.add(r);
+							return true;
+						}
 					}
 				}
+				
+				return false;
+			} else {
+				for(Rectangular rect : rectList) {
+					if(rect.isValidPosition(r))
+						return false;
+					if(r.isValidPosition(rect))
+						return false;
+				}
+				rectList.add(r);
+				return true;
 			}
-			
+		} else { // Vi tri dat vat nam ngoai phong
 			return false;
-		} else {
-			for(Rectangular rect : rectList) {
-				if(rect.isValidPosition(r))
-					return false;
-				if(r.isValidPosition(rect))
-					return false;
-			}
-			rectList.add(r);
-			return true;
 		}
 	}
 	
-	public boolean inRoom(Rectangular r) { // Xac dinh 1 vat co nam trong phong hay ko
+	/** Xac dinh 1 vat co nam trong phong hay ko  */
+	public boolean inRoom(Rectangular r) {
 		if(!inRoom(r.getA1())) {
 			return false;
 		}
@@ -130,7 +145,37 @@ public class Room {
 		return true;
 	}
 	
-	public boolean inRoom(Point p) { // Xac dinh 1 diem co nam trong phong hay ko
-		return !(p.getX() > lengthRoom || p.getX() < 0 || p.getY() > widthRoom || p.getY() < 0);
+	/** Xac dinh 1 diem co nam trong phong hay ko */
+	public boolean inRoom(Point p) {
+		return !(p.getX() > widthRoom || p.getX() < 0 || p.getY() > lengthRoom || p.getY() < 0);
 	}
+	
+	/**********************************************************************/
+
+	/**  Xac dinh diem dat camera co hop le hay khong */
+	public boolean isValidPosition(Point p) { 
+		if(p.getZ() == heightRoom) {
+			return true;
+		} else if(p.getY() == lengthRoom || p.getY() == 0) {
+			return true;
+		} else if(p.getX() == widthRoom || p.getX() == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/** Them camera vao phong, xac dinh vi tri dat co hop le hay ko */
+	public boolean addCameara(Point position, float angle1, float angle2) {
+		if(isValidPosition(position)) {
+			cameraList.add(new Camera(this, position, angle1, angle2));
+			return true;
+		} else {
+			return false;
+		}	
+	}
+	
+	/**********************************************************************/
+	
+	
 }

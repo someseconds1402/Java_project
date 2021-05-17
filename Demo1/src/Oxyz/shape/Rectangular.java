@@ -20,7 +20,6 @@ public class Rectangular {
 	// Constructor
 	
 	public Rectangular(Point a1, Point b1, Point c1, float h) {
-		super();
 		A1 = a1;
 		B1 = b1;
 		C1 = c1;
@@ -145,7 +144,8 @@ public class Rectangular {
 	
 	/****************************************************************************/
 	
-	public boolean isIn(Point p) { // Kiem tra diem p co nam trong hinh hop this hay ko
+	/** Kiem tra 1 diem co nam trong vat the hay khong */
+	public boolean isIn(Point p) {
 		float n1, n2, n3, n4, n5, n6;
 		Plane pl1, pl2, pl3, pl4, pl5, pl6;
 		pl1 = new Plane(A1, B1, C1); 	 // Mat phang A1.B1.C1.D1 (1)
@@ -177,7 +177,9 @@ public class Rectangular {
 		return true;
 	}
 	
-	public boolean isPerpendicular() { // xac dinh 3 dinh cho truoc co tao thanh goc vuong hay ko
+	
+	/** Xac dinh 3 diem dau vao co tao thanh 1 goc vuong hay ko */
+	public boolean isPerpendicular() {
 		Vector u1 = new Vector(A1, B1);
 		Vector u2 = new Vector(B1, C1);
 		return (u1.getX()*u2.getX() + u1.getY()*u2.getY() + u1.getZ()*u2.getZ()) == 0;

@@ -11,7 +11,7 @@ public class Camera {
 	
 	private Plane []vision = new Plane[4]; // tam nhin cua camera (bao quanh boi 4 hinh tam giac)
 	private Plane top;  // mat phang vuong goc voi truc cua camera tai dinh. 
-						//Dung de kiem tra 1 vat co nam ngoai tam xa cua camera hay ko
+						// Dung de kiem tra 1 vat co nam ngoai tam xa cua camera hay ko
 	private float angle1, angle2;
 	
 	// Getter & Setter
@@ -95,7 +95,6 @@ public class Camera {
 				vision[1] = new Plane(position, new Vector(sinAngel1 * cosAngel1, 0, cosAngel1 * cosAngel1 -1));
 				vision[2] = new Plane(position, new Vector(0, sinAngel2 * cosAngel2, -cosAngel2 * cosAngel2 +1));
 				vision[3] = new Plane(position, new Vector(0, sinAngel2 * cosAngel2, cosAngel2 * cosAngel2 -1));
-
 			}
 		}
 	}
