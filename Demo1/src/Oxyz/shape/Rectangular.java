@@ -220,6 +220,16 @@ public class Rectangular {
 		return false;
 	}
 	
+	public boolean centroidIsInRect(Rectangular r) { // Xac dinh xem trong tam cua vat the r co nam trong day cua vat the this hay ko
+		float Gx = (r.getA1().getX() + r.getC1().getX()) / 2;
+		float Gy = (r.getA1().getY() + r.getC1().getY()) / 2;
+		float Gz = (r.getA1().getZ() + r.getC1().getZ()) / 2;
+		
+		Point G = new Point(Gx, Gy, Gz);
+		
+		return isInRect(G);
+	}
+	
 	public boolean isInRect(Point p) { // Xac dinh 1 diem co nam trong day cua vat the hay khong
 		Line AB = new Line(A1, B1);
 		Line CD = new Line(C1, AB.getU());
@@ -238,6 +248,11 @@ public class Rectangular {
 		Line CD = new Line(C1, AB.getU());
 		Line AD = new Line(A1, D1);
 		Line BC = new Line(B1, AD.getU());
+		
+//		if(Line.isBetween2Lines2(AB, CD, p))
+//			System.out.println(1);
+//		if(Line.isBetween2Lines2(AD, BC, p))
+//			System.out.println(2);
 		
 		if(Line.isBetween2Lines2(AB, CD, p) && Line.isBetween2Lines2(AD, BC, p)) {
 			return true;

@@ -113,9 +113,13 @@ public class Room {
 				return false;
 			} else {
 				for(Rectangular rect : rectList) {
-					if(rect.isValidPosition(r))
+					if(rect.centroidIsInRect(r)) // Trong tam vat the r nam trong vat the rect
 						return false;
-					if(r.isValidPosition(rect))
+					if(r.centroidIsInRect(rect)) // Trong tam vat the rect nam trong vat the r
+						return false;
+					if(rect.isValidPosition(r)) // Dinh cua r nam trong vat the rect
+						return false;
+					if(r.isValidPosition(rect)) // Dinh cua rect nam trong vat the r
 						return false;
 				}
 				rectList.add(r);
@@ -190,6 +194,11 @@ public class Room {
 		Dimension result = new Dimension(0, 0);
 		
 		if(!inRoom(p)) {
+			result = new Dimension(-1, -1);
+			return result;
+		}
+		
+		if(p.getZ() > heightRoom) {
 			result = new Dimension(-1, -1);
 			return result;
 		}
