@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -15,9 +17,9 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <ImageView fitHeight="221.0" fitWidth="297.0" layoutX="90.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="562.0" fitWidth="451.0" layoutX="-9.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
                            <image>
-                              <Image url="@../image/a.png" />
+                              <Image url="@../image/g.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="178.0" fitWidth="240.0" layoutX="-13.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
@@ -25,7 +27,7 @@
                               <Image url="@../image/c.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="183.0" fitWidth="210.0" layoutX="122.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true" rotate="-162.1">
+                        <ImageView fitHeight="183.0" fitWidth="210.0" layoutX="178.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" rotate="79.3">
                            <image>
                               <Image url="@../image/e.png" />
                            </image>
@@ -34,34 +36,34 @@
                         <Button fx:id="addObjectButton" layoutX="24.0" layoutY="150.0" mnemonicParsing="false" onAction="#accessAddObjectPane" prefHeight="60.0" prefWidth="135.0" text="Add Object" />
                         <Button fx:id="addCameraButton" layoutX="187.0" layoutY="150.0" mnemonicParsing="false" onAction="#accessAddCameraPane" prefHeight="60.0" prefWidth="135.0" text="Add Camera" />
                         <Button fx:id="viewButton" layoutX="24.0" layoutY="250.0" mnemonicParsing="false" onAction="#accessViewPane" prefHeight="60.0" prefWidth="135.0" text="View" />
-                        <Button fx:id="checkPointButton" layoutX="187.0" layoutY="250.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="135.0" text="Check Point" />
+                        <Button fx:id="checkPointButton" layoutX="187.0" layoutY="250.0" mnemonicParsing="false" onAction="#accessCheckPointPane" prefHeight="60.0" prefWidth="135.0" text="Check Point" />
                         <Button fx:id="DetailButton" layoutX="24.0" layoutY="346.0" mnemonicParsing="false" onAction="#accessDetailPane" prefHeight="60.0" prefWidth="135.0" text="Detail" />
                         <Button layoutX="187.0" layoutY="346.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="135.0" text="Other" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="832.0">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="696.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                        <ImageView fitHeight="339.0" fitWidth="412.0" layoutX="513.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/b.png" />
+                              <Image url="@../../../../../../../Downloads/image/f.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="339.0" fitWidth="412.0" layoutX="499.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/b.png" />
+                              <Image url="@../../../../../../../Downloads/image/d.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="405.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+                        <ImageView fitHeight="252.0" fitWidth="285.0" layoutX="-10.0" layoutY="-3.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/b.png" />
+                              <Image url="@../../../../../../../Downloads/image/g.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="691.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                        <ImageView fitHeight="258.0" fitWidth="257.0" layoutX="-9.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true" rotate="41.7">
                            <image>
-                              <Image url="@../image/b.png" />
+                              <Image url="@../../../../../../../Downloads/image/h.png" />
                            </image>
                         </ImageView>
-                        <AnchorPane fx:id="createRoomPane" layoutX="34.0" layoutY="28.0" prefHeight="499.0" prefWidth="775.0">
+                        <AnchorPane fx:id="createRoomPane" layoutX="39.0" layoutY="27.0" prefHeight="499.0" prefWidth="775.0">
                            <children>
                               <Label layoutX="160.0" layoutY="100.0" text="WIDTH">
                                  <font>
@@ -175,13 +177,14 @@
                                     <Font name="System Bold" size="28.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="heightTextFieldAddObject" layoutX="150.0" layoutY="530.0" prefHeight="45.0" prefWidth="249.0" />
+                              <TextField fx:id="heightTextFieldAddObject" layoutX="150.0" layoutY="530.0" prefHeight="45.0" prefWidth="100.0" />
                               <Label fx:id="heightLabelAddObject" layoutX="150.0" layoutY="580.0" text="Invalid Input!" textFill="#f20808" visible="false">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="476.0" layoutY="528.0" mnemonicParsing="false" onAction="#addObjectEvent" prefHeight="50.0" prefWidth="180.0" text="ADD" />
+                              <Button layoutX="570.0" layoutY="528.0" mnemonicParsing="false" onAction="#addObjectEvent" prefHeight="50.0" prefWidth="180.0" text="ADD" />
+                              <Button layoutX="320.0" layoutY="528.0" mnemonicParsing="false" onAction="#renewAddObjectEvent" prefHeight="50.0" prefWidth="180.0" text="NEW" />
                               <Label layoutX="115.0" layoutY="175.0" text="X :">
                                  <font>
                                     <Font size="24.0" />
@@ -271,7 +274,8 @@
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="338.0" layoutY="410.0" mnemonicParsing="false" onAction="#addCameraEvent" prefHeight="50.0" prefWidth="208.0" text="ADD" />
+                              <Button layoutX="480.0" layoutY="410.0" mnemonicParsing="false" onAction="#addCameraEvent" prefHeight="50.0" prefWidth="208.0" text="ADD" />
+                              <Button layoutX="207.0" layoutY="410.0" mnemonicParsing="false" onAction="#renewAddCameraEvent" prefHeight="50.0" prefWidth="208.0" text="NEW" />
                            </children></AnchorPane>
                         <TabPane fx:id="viewPane" layoutY="-3.0" prefHeight="812.0" prefWidth="853.0" tabClosingPolicy="UNAVAILABLE" visible="false">
                           <tabs>
@@ -302,52 +306,99 @@
                               </Tab>
                           </tabs>
                         </TabPane>
+                        <AnchorPane fx:id="checkPointPane" layoutX="24.0" layoutY="47.0" prefHeight="469.0" prefWidth="805.0" visible="false">
+                           <children>
+                              <TextField layoutX="180.0" layoutY="105.0" prefHeight="50.0" prefWidth="100.0" fx:id="xTextFieldCheckPoint" />
+                              <TextField fx:id="yTextFieldCheckPoint" layoutX="400.0" layoutY="105.0" prefHeight="50.0" prefWidth="100.0" />
+                              <TextField fx:id="zTextFieldCheckPoint" layoutX="620.0" layoutY="105.0" prefHeight="50.0" prefWidth="100.0" />
+                              <Label layoutX="570.0" layoutY="110.0" text="Z">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="350.0" layoutY="110.0" text="Y">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="130.0" layoutY="110.0" text="X">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="zLabelCheckPoint" layoutX="620.0" layoutY="149.0" text="Invalid Input!" textFill="#f20808" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="yLabelCheckPoint" layoutX="400.0" layoutY="149.0" text="Invalid Input!" textFill="#f20808" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="180.0" layoutY="149.0" text="Invalid Input!" textFill="#f20808" visible="false" fx:id="xLabelCheckPoint">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="textAreaCheckPoint" editable="false" layoutX="117.0" layoutY="235.0" prefHeight="200.0" prefWidth="618.0" />
+                              <Label layoutX="130.0" layoutY="51.0" text="POSITION">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font></Label>
+                              <Button layoutX="275.0" layoutY="183.0" mnemonicParsing="false" onAction="#renewCheckPointEvent" prefHeight="44.0" prefWidth="145.0" text="NEW">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="484.0" layoutY="183.0" mnemonicParsing="false" onAction="#checkPointEvent" prefHeight="44.0" prefWidth="144.0" text="CHECK">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                           </children></AnchorPane>
                         <AnchorPane fx:id="detailPane" prefHeight="562.0" prefWidth="851.0" visible="false">
                            <children>
-                              <TableView layoutY="44.0" prefHeight="224.0" prefWidth="851.0">
+                              <TableView fx:id="objectTableView" layoutX="26.0" layoutY="44.0" prefHeight="224.0" prefWidth="798.0">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="A1">
+                                  <TableColumn fx:id="a1ColumnObject" prefWidth="75.0" text="A1">
                                        <columns>
-                                          <TableColumn prefWidth="75.0" text="X" />
-                                          <TableColumn prefWidth="75.0" text="Y" />
-                                          <TableColumn prefWidth="75.0" text="Z" />
+                                          <TableColumn prefWidth="75.0" text="X" fx:id="xA1ColumnObject" />
+                                          <TableColumn fx:id="yA1ColumnObject" prefWidth="75.0" text="Y" />
+                                          <TableColumn fx:id="zA1ColumnObject" prefWidth="75.0" text="Z" />
                                        </columns>
                                     </TableColumn>
-                                  <TableColumn prefWidth="75.0" text="B1">
+                                  <TableColumn fx:id="b1ColumnObject" prefWidth="75.0" text="B1">
                                        <columns>
-                                          <TableColumn prefWidth="75.0" text="Z" />
-                                          <TableColumn prefWidth="75.0" text="Y" />
-                                          <TableColumn prefWidth="75.0" text="X" />
+                                          <TableColumn prefWidth="75.0" text="X" fx:id="xB1ColumnObject" />
+                                          <TableColumn fx:id="yB1ColumnObject" prefWidth="75.0" text="Y" />
+                                          <TableColumn fx:id="zB1ColumnObject" prefWidth="75.0" text="Z" />
                                        </columns>
                                     </TableColumn>
-                                    <TableColumn prefWidth="239.0" text="C1">
+                                    <TableColumn fx:id="c1ColumnObject" prefWidth="239.0" text="C1">
                                        <columns>
-                                          <TableColumn prefWidth="75.0" text="Z" />
-                                          <TableColumn prefWidth="75.0" text="Y" />
-                                          <TableColumn prefWidth="75.0" text="X" />
+                                          <TableColumn prefWidth="75.0" text="X" fx:id="xC1ColumnObject" />
+                                          <TableColumn fx:id="yC1ColumnObject" prefWidth="75.0" text="Y" />
+                                          <TableColumn fx:id="zC1ColumnObject" prefWidth="75.0" text="Z" />
                                        </columns>
                                     </TableColumn>
-                                    <TableColumn prefWidth="174.0" text="Height" />
+                                    <TableColumn fx:id="heightColumnObject" prefWidth="122.0" text="Height" />
                                 </columns>
                               </TableView>
-                              <TableView layoutY="306.0" prefHeight="254.0" prefWidth="377.0">
+                              <TableView fx:id="cameraTableView" layoutX="26.0" layoutY="308.0" prefHeight="254.0" prefWidth="377.0">
                                 <columns>
-                                  <TableColumn prefWidth="232.0" text="POSITION">
+                                  <TableColumn fx:id="positionColumnCamera" prefWidth="232.0" text="POSITION">
                                        <columns>
-                                          <TableColumn prefWidth="75.0" text="X" />
-                                          <TableColumn prefWidth="75.0" text="Y" />
-                                          <TableColumn prefWidth="75.0" text="Z" />
+                                          <TableColumn prefWidth="75.0" text="X" fx:id="xPositionColumnCamera" />
+                                          <TableColumn fx:id="yPositionColumnCamera" prefWidth="75.0" text="Y" />
+                                          <TableColumn fx:id="zPositionColumnCamera" prefWidth="75.0" text="Z" />
                                        </columns>
                                     </TableColumn>
-                                  <TableColumn minWidth="12.0" prefWidth="268.0" text="ANGLE">
-                                       <columns>
-                                          <TableColumn prefWidth="75.0" text="alpha" />
-                                          <TableColumn prefWidth="75.0" text="beta" />
-                                       </columns>
-                                    </TableColumn>
+                                    <TableColumn fx:id="alphaAngleColumnCamera" prefWidth="75.0" text="alpha" />
+                                    <TableColumn fx:id="betaAngleColumnCamera" prefWidth="75.0" text="beta" />
                                 </columns>
                               </TableView>
-                              <Label layoutX="118.0" layoutY="268.0" text="CAMERA">
+                              <Label layoutX="133.0" layoutY="268.0" text="CAMERA">
                                  <font>
                                     <Font name="System Bold" size="28.0" />
                                  </font>

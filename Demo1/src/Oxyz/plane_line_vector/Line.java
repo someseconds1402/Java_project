@@ -83,4 +83,20 @@ public class Line {
 		return true;
 	}
 	
+	public static boolean isBetween2Lines2(Line l1, Line l2, Point p) { 
+		/*
+		 * Xac dinh 1 diem co nam giua 2 duong thang hay khong, truong hop diem nam tren 1 duong thang, tra ve false
+		 * Bo qua truc Ox, tinh toan nhu tren mat phang
+		 * M(x0, y0, z0) & u = (a, b, c)
+		 * Thay toa do diem M vao phuong trinh tham so duong thang l
+		 * result = (x-x0)/a - (y-y0)/b
+		 */
+		float exp1 = (p.getX() - l1.getX()) / l1.getU().getX() - (p.getY() - l1.getY()) / l1.getU().getY();
+		float exp2 = (p.getX() - l2.getX()) / l2.getU().getX() - (p.getY() - l2.getY()) / l2.getU().getY();
+		
+		if(exp1 * exp2 >= 0) {
+			return false;
+		}
+		return true;
+	}
 }

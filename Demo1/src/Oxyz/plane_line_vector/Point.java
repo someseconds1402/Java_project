@@ -50,4 +50,8 @@ public class Point {
 	public boolean isDifference(Point p) {
 		return !(x == p.x && y == p.y && z == p.z);
 	}
+	
+	public String getProperties() {
+		return ("(" + x + ", " + y + ", " + z + ")");
+	}
 }

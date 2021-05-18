@@ -1,5 +1,6 @@
 package Oxyz.room;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 
 import Oxyz.camera.Camera;
@@ -8,8 +9,8 @@ import Oxyz.plane_line_vector.Vector;
 import Oxyz.shape.Rectangular;
 
 public class Room {
-	private ArrayList<Rectangular> rectList = new ArrayList<>();
-	private ArrayList<Camera> cameraList = new ArrayList<>();
+	private ArrayList<Rectangular> rectList = new ArrayList<Rectangular>();
+	private ArrayList<Camera> cameraList = new ArrayList<Camera>();
 //	private Rectangular room;
 	
 	private float widthRoom;
@@ -176,6 +177,39 @@ public class Room {
 	}
 	
 	/**********************************************************************/
+	
+	/**
+	 * kiem tra vi tri cua 1 diem,
+	 * * tra ve 0 neu ko nam trong tam nhin cua camera va ko nam trong vat the.
+	 * tra ve -1 neu nam ngoai phong.
+	 * tra ve 1 neu nam trong vat.
+	 * tra ve 2 neu nam trong tam nhin cua camera.
+	 */
+	
+	public Dimension checkPoint(Point p) {
+		Dimension result = new Dimension(0, 0);
+		
+		if(!inRoom(p)) {
+			result = new Dimension(-1, -1);
+			return result;
+		}
+		
+		for(Rectangular object : rectList) {
+			if(object.isIn(p)) {
+				result = new Dimension(1, rectList.indexOf(object));
+				return result;
+			}
+		}
+		
+		for(Camera camera : cameraList) {
+			if(camera.isInVision(p)) {
+				result = new Dimension(2, cameraList.indexOf(camera));
+				return result;
+			}
+		}
+		
+		return result;
+	}
 	
 	
 }
