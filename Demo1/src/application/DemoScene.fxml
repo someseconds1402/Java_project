@@ -311,6 +311,16 @@
                               <TextField layoutX="180.0" layoutY="105.0" prefHeight="50.0" prefWidth="100.0" fx:id="xTextFieldCheckPoint" />
                               <TextField fx:id="yTextFieldCheckPoint" layoutX="400.0" layoutY="105.0" prefHeight="50.0" prefWidth="100.0" />
                               <TextField fx:id="zTextFieldCheckPoint" layoutX="620.0" layoutY="105.0" prefHeight="50.0" prefWidth="100.0" />
+                              <Button layoutX="484.0" layoutY="183.0" mnemonicParsing="false" onAction="#checkPointEvent" prefHeight="44.0" prefWidth="144.0" text="CHECK">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="275.0" layoutY="183.0" mnemonicParsing="false" onAction="#renewCheckPointEvent" prefHeight="44.0" prefWidth="145.0" text="NEW">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
                               <Label layoutX="570.0" layoutY="110.0" text="Z">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
@@ -346,16 +356,6 @@
                                  <font>
                                     <Font name="System Bold" size="30.0" />
                                  </font></Label>
-                              <Button layoutX="275.0" layoutY="183.0" mnemonicParsing="false" onAction="#renewCheckPointEvent" prefHeight="44.0" prefWidth="145.0" text="NEW">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Button>
-                              <Button layoutX="484.0" layoutY="183.0" mnemonicParsing="false" onAction="#checkPointEvent" prefHeight="44.0" prefWidth="144.0" text="CHECK">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Button>
                            </children></AnchorPane>
                         <AnchorPane fx:id="detailPane" prefHeight="562.0" prefWidth="851.0" visible="false">
                            <children>

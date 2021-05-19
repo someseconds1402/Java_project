@@ -260,4 +260,27 @@ public class Rectangular {
 		
 		return false;
 	}
+	
+	// Xac dinh giao diem giua duong thang va vat the
+	public Point intersection(Line l) {
+		Point p;
+		p = l.intersection(new Plane(A2, B2, C2)); // A2.B2.C2.D2
+		if(p==null || !isIn(p)) {
+			p = l.intersection(new Plane(A1, A2, B2)); // A1.A2.B2.B1
+			if(p==null || !isIn(p)) {
+				p = l.intersection(new Plane(A1, A2, D2)); // A1.A2.D2.D1
+				if(p==null || !isIn(p)) {
+					p = l.intersection(new Plane(B1, B2, C2)); // B1.B2.C2.C1
+					if(p==null || !isIn(p)) {
+						p = l.intersection(new Plane(C1, D1, D2)); // C1.D1.D2.C2
+						if(p==null || !isIn(p)) {
+							return null;
+						}
+					}
+				}
+			}
+		}
+					
+		return p;
+	}
 }

@@ -103,4 +103,37 @@ public class Plane {
 		return (pl1.doSomething(p) * pl2.doSomething(p)) <= 0;
 	}
 	
+	
+	/*
+	 * Ham tim giao diem giua duong thang va mat phang
+	 * d :
+	 * x = x0 + at
+	 * y = y0 + bt
+	 * z = z0 + ct
+	 * 
+	 * S :
+	 * a'x + b'y + c'z + d = 0
+	 * 
+	 * d = S
+	 * =>a'(x0 + at) + b'(y0 + bt) + c'(Z0 + ct) + d = 0
+	 * => t(a'a + b'b + c'c) = -(a'x0 + b'y0 + c'z0 + d)
+	 * => t = -(a'x0 + b'y0 + c'z0 + d) / (a'a + b'b + c'c)
+	 */
+	
+	public Point intersection(Line l) {
+		Vector u = l.getU();
+		
+		float denominator = (a*l.getX() + b*l.getY() + c*l.getZ());
+		
+		if(denominator == 0)
+			return null;
+		
+		float t = -(a*u.getX() + b*u.getY() + c*u.getZ() + d) / denominator;
+		
+		if(!Float.isNaN(t) || !Float.isInfinite(t)) {
+			return new Point(l.getX() + u.getX() * t, l.getY() + u.getY() * t, l.getZ() + u.getZ() * t);
+		}
+		
+		return null;
+	}
 }

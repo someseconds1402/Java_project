@@ -104,4 +104,36 @@ public class Line {
 		}
 		return true;
 	}
+	
+	/*
+	 * Ham tim giao diem giua duong thang va mat phang
+	 * d :
+	 * x = x0 + at
+	 * y = y0 + bt
+	 * z = z0 + ct
+	 * 
+	 * S :
+	 * a'x + b'y + c'z + d = 0
+	 * 
+	 * d = S
+	 * =>a'(x0 + at) + b'(y0 + bt) + c'(Z0 + ct) + d = 0
+	 * => t(a'a + b'b + c'c) = -(a'x0 + b'y0 + c'z0 + d)
+	 * => t = -(a'x0 + b'y0 + c'z0 + d) / (a'a + b'b + c'c)
+	 */
+	
+	public Point intersection(Plane pl) {
+
+		float denominator = (pl.getA()*u.getX() + pl.getB()*u.getY() + pl.getC()*u.getZ());
+		
+		if(denominator == 0)
+			return null;
+		
+		float t = -(pl.getA()*x + pl.getB()*y + pl.getC()*z + pl.getD()) / denominator;
+		
+		if(!Float.isNaN(t) || !Float.isInfinite(t)) {
+			return new Point(x + u.getX()*t, y + u.getY()*t, z + u.getZ()*t);
+		}
+		
+		return null;
+	}
 }

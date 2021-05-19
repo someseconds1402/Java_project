@@ -478,9 +478,14 @@ public class Controller implements Initializable {
 			
 			textAreaCheckPoint.setText("This point is in the view of the camera. \nThe camera has the following parameters: \n");
 			textAreaCheckPoint.appendText("X: " + camera.getPosition().getProperties() + "\n");
-			textAreaCheckPoint.appendText("Y: " + camera.getAngle1() + "\n");
-			textAreaCheckPoint.appendText("Y: " + camera.getAngle2() + "\n");
+			textAreaCheckPoint.appendText("Alpha: " + camera.getAngle1() + "\n");
+			textAreaCheckPoint.appendText("Beta: " + camera.getAngle2() + "\n");
 			
+			return;
+		}
+		
+		if(n == 3) {
+			textAreaCheckPoint.setText("This point is in the view of the camera(s) \nbut has been blocked by the object.");
 			return;
 		}
 		

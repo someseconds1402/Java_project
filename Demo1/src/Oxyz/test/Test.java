@@ -2,6 +2,7 @@ package Oxyz.test;
 
 import Oxyz.camera.Camera;
 import Oxyz.plane_line_vector.Line;
+import Oxyz.plane_line_vector.Plane;
 import Oxyz.plane_line_vector.Point;
 import Oxyz.plane_line_vector.Vector;
 import Oxyz.room.Room;
@@ -10,56 +11,37 @@ import Oxyz.shape.Rectangular;
 public class Test {
 
 	public static void main(String[] args) {
-		Room room = new Room(10, 10, 10);
+		Room room = new Room(100, 100, 100);
 		
-		Point p1 = new Point(1, 0, 0);
-		Point p2 = new Point(0, 0, 0);
-		Point p3 = new Point(0, 1, 0);
-		Point p0 = new Point(1, 1, 1);
+		Point p0 = new Point(4, 0, 0);
+		Point p1 = new Point(3, 0, 0);
+		Point p2 = new Point(3, 20, 0);
 		
-		Rectangular r1 = new Rectangular(p1, p2, p3, 10);
+		Point p3 = new Point(5, 5, 5);
+		Point p4 = new Point(0, 5, 5);
 		
-		Line l1 = new Line(p1, p2);
-		Line l2 = new Line(p0, p3);
+		Plane pl1 = new Plane(p1, p2, new Point(3, 0, 1));
+		Plane pl2 = new Plane(p1, p2, p0);
+//		pl2.print();
 		
-		System.out.println(Line.isBetween2Lines2(l1, l2, p0));
-		System.out.println(Line.isBetween2Lines2(l1, l2, p3));
-		System.out.println(Line.isBetween2Lines2(l1, l2, new Point(0.5f, 0.5f, 0)));
-		System.out.println(Line.isBetween2Lines2(l1, l2, new Point(-2, 0, 0)));
-				
+		Rectangular rect = new Rectangular(p0, p1, p2, 20);
 		
-				
-//		if(room.addObject(p1, p2, p3, 1)) {
-//			System.out.println(1);
-//		}else {
-//			System.out.println(2);
-//		}
-//		
-//		Point p4 = new Point(2, 1, 0);
-//		Point p5 = new Point(1, 1, 0);
-//		Point p6 = new Point(1, 2, 0);
+//		Camera camera = new Camera(room, new Point(0, 5, 5), 90, 90);
 		
-//		Rectangular r2 = new Rectangular(p4, p5, p6, 10);
+		room.addObject(rect);
+		room.addCameara(p4, 90, 90);
 		
-//		System.out.println(r2.isInRect2(r1.getD1())); // D1 (r1) : (1, 1, 0)
-//		System.out.println(r1.isInRect2(r2.getB1())); // B1 (r2) : (1, 1, 0)
+		Point p5 = rect.intersection(new Line(p3, p4));
 		
-//		System.out.println(r2.isValidPosition(r1));
-//		System.out.println(r1.isValidPosition(r2));
+		Point p6 = (new Line(p3, p4)).intersection(pl2);
 		
-//		if(room.addObject(p4, p5, p6, 1)) {
-//			System.out.println(1);
-//		}else {
-//			System.out.println(2);
-//		}
+		if(p6 == null) {
+			System.out.println(1);
+		}
+		System.out.println(p5.getProperties());
 		
-//		System.out.println(room.getRectList().size());
-//		room.addCameara(p6, 10, 10);
-//		room.addCameara(new Point(10, 1, 1), 10, 10);
-//		
-//		for(Camera camera : room.getCameraList()) {
-//			System.out.println(1);
-//		}
+		System.out.println();
+		
 	}
 
 }

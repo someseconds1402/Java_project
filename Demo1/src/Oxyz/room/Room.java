@@ -4,8 +4,8 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 
 import Oxyz.camera.Camera;
+import Oxyz.plane_line_vector.Line;
 import Oxyz.plane_line_vector.Point;
-import Oxyz.plane_line_vector.Vector;
 import Oxyz.shape.Rectangular;
 
 public class Room {
@@ -188,34 +188,52 @@ public class Room {
 	 * tra ve -1 neu nam ngoai phong.
 	 * tra ve 1 neu nam trong vat.
 	 * tra ve 2 neu nam trong tam nhin cua camera.
+	 * tra ve 3 neu nam trong tam nhin cua camera nhung lai bi chan boi vat the
 	 */
 	
 	public Dimension checkPoint(Point p) {
 		Dimension result = new Dimension(0, 0);
 		
-		if(!inRoom(p)) {
-			result = new Dimension(-1, -1);
-			return result;
-		}
+		if(!inRoom(p))
+			return new Dimension(-1, -1);
 		
-		if(p.getZ() > heightRoom) {
-			result = new Dimension(-1, -1);
-			return result;
-		}
+		if(p.getZ() > heightRoom) 
+			return new Dimension(-1, -1);
 		
 		for(Rectangular object : rectList) {
-			if(object.isIn(p)) {
-				result = new Dimension(1, rectList.indexOf(object));
-				return result;
+			if(object.isIn(p))
+				return new Dimension(1, rectList.indexOf(object));
+		}
+		
+		
+		int countInVision = 0; // Dem so camera co the thay duoc diem p (chua xet truong hop co vat the chan)
+		
+		for(Camera camera : cameraList) { 	
+			if(camera.isInVision(p)) { // p nam trong tam nhin cua camera
+				
+				countInVision++;
+				Point pos = camera.getPosition();
+				Line l = new Line(pos, p); // l la duong thang noi giua camera va diem p
+				
+				for(Rectangular object : rectList) {
+					
+					Point interPoint = object.intersection(l); // giao diem giua object va l
+					if(interPoint != null) { // Neu co giao diem thi xet truong hop giao diem nam giua camera va diem p
+						if(!interPoint.isBetween2Points(pos, p)) {
+							/*
+							 * Neu giao diem ko nam giua camera va p 
+							 * -> p trong tam nhin cua camera -> tra ve result
+							 */
+							return new Dimension(2, cameraList.indexOf(camera));
+						}
+					}
+				}
+				
 			}
 		}
 		
-		for(Camera camera : cameraList) {
-			if(camera.isInVision(p)) {
-				result = new Dimension(2, cameraList.indexOf(camera));
-				return result;
-			}
-		}
+		if(countInVision > 0) 
+			return new Dimension(3, 0);
 		
 		return result;
 	}
